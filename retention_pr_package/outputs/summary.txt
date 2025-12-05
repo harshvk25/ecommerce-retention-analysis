@@ -1,1 +1,0 @@
-Exact average (unrounded): 71.615\nReported average (per assignment requirement): 71.61\n
