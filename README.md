@@ -55,3 +55,5 @@ This work was generated with assistance from Jules (ChatGPT Codex) / LLMs for co
 ## How this helps reach the target
 The suggested targeted retention campaigns focus marketing and product resources on the customers most likely to churn or to deliver high LTV. Improving retention from ~71.6% to 85% will significantly increase aggregated customer LTV and reduce reliance on costly acquisition.
 
+<!-- Updated with assistance from Jules (ChatGPT Codex) -->
+
