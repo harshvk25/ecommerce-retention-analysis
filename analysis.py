@@ -1,33 +1,36 @@
-"""
-E-commerce Customer Retention Analysis
-Author: 24ds2000078@ds.study.iitm.ac.in
-Date: December 2024
-"""
-
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 
-# Quarterly retention data
-data = {
-    'Quarter': ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'],
-    'Retention_Rate': [71.97, 72.36, 69.76, 72.37],
-    'Industry_Target': [85, 85, 85, 85]
-}
+# Quarterly Retention Data
+quarters = ["Q1", "Q2", "Q3", "Q4"]
+retention_rates = [67.7, 72.8, 76.09, 74.75]
 
 # Create DataFrame
-df = pd.DataFrame(data)
+df = pd.DataFrame({
+    "Quarter": quarters,
+    "Customer Retention Rate": retention_rates
+})
 
-# Calculate statistics
-average_retention = df['Retention_Rate'].mean()
-gap_from_target = 85 - average_retention
-percentage_gap = (gap_from_target / 85) * 100
+# Calculate average retention
+average_retention = round(df["Customer Retention Rate"].mean(), 2)
+industry_target = 85
 
-print(f"Average Customer Retention Rate: {average_retention:.2f}")
-print(f"Industry Target: 85")
-print(f"Performance Gap: {gap_from_target:.2f} points")
-print(f"Percentage Gap: {percentage_gap:.2f}%")
+print("Average Retention Rate:", average_retention)
 
-# Save to CSV
-df.to_csv('retention_data.csv', index=False)
+# Plot trend and benchmark
+plt.figure(figsize=(8, 5))
+plt.plot(df["Quarter"], df["Customer Retention Rate"], marker="o", label="Actual Retention")
+plt.axhline(y=industry_target, linestyle="--", label="Industry Target (85)")
+plt.axhline(y=average_retention, linestyle=":", label=f"Average (72.84)")
+
+plt.title("Customer Retention Trend - 2024")
+plt.xlabel("Quarter")
+plt.ylabel("Retention Rate")
+plt.legend()
+plt.grid(True)
+
+# Save visualization
+plt.savefig("retention_trend.png", dpi=128)
+plt.close()
+
+print("Visualization saved as retention_trend.png")
